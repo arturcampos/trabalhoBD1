@@ -156,3 +156,19 @@ CREATE TABLE ListaProdCardapio (
 	CONSTRAINT FK_ListaProdCardapio_Produto PRIMARY KEY (codigoProduto)
 		REFERENCES Produto (codigoProduto)
 );
+
+CREATE TABLE Endereco
+(
+	codigoCliente INTEGER PRIMARY KEY,
+	rua VARCHAR(20) NOT NULL,
+	numero INTEGER NOT NULL,
+	bairro VARCHAR(10) NOT NULL,
+	cidade VARCHAR(10) NOT NULL,
+	estado VARCHAR(10),
+	complemento VARCHAR(10),
+	CONSTRAINT FK_cliente FOREIGN KEY (codigoCliente) 
+		REFERENCES cliente(cpf)
+		ON UPDATE CASCADE
+		ON DELETE RESTRICT
+);
+
